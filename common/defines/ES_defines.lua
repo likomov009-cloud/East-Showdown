@@ -347,7 +347,7 @@ NDefines.NAI.PEACE_BID_FOLD_AGAINST_LIBERATE_CONTEST = 1.0				-- Likelihood that
 NDefines.NAI.PEACE_BID_FOLD_MINOR_VS_MAJOR = 1.0						-- Likelihood that AI minors will fold against majors (majors will already try and return cores and claims so this should not be a particularly big deal)
 NDefines.NOperatives.AGENCY_UPGRADE_DAYS = 20						-- Number of days needed to upgrade an intelligence agency
 NDefines.NOperatives.AGENCY_OPERATIVE_RECRUITMENT_TIME = 20			-- Number of days to wait to have operative to recruit when an operative slot first becomes available
-NDefines.NOperatives.OPERATIVE_BASE_INTEL_NETWORK_GAIN = 0.8				-- Base amount of network strength gain per day provided by an operative
+NDefines.NOperatives.OPERATIVE_BASE_INTEL_NETWORK_GAIN = 0.25				-- Base amount of network strength gain per day provided by an operative
 NDefines.NCharacter.ADVISOR_PROMOTION_COST = 0	-- Cost to promote someone to advisor
 --defines to calculate the capitals supply. This will be also used for max supply of other nodes depending on how well they are connected to capital. Using the formula:
 --CapitalSupply = CAPITAL_SUPPLY_BASE + (NumberOfCivilianFactories * CAPITAL_SUPPLY_CIVILIAN_FACTORIES) + (NumberOfMilitaryFactories * CAPITAL_SUPPLY_MILITARY_FACTORIES) + (NumberOfDockyards * CAPITAL_SUPPLY_DOCKYARDS)
@@ -499,6 +499,7 @@ NDefines.NDoctrines.MAX_MONTHLY_MASTERY_GAIN = 1200 --50
 NDefines.NDoctrines.MASTERY_BAR_ANIMATION_SPEED_PER_DAILY_MASTERY = 1 --5.0
 NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.00 -- 0.1
 
+<<<<<<< Updated upstream
 NDefines.NMilitary.COMMS_MAX_DISTANCE = 10										-- If N is >= the size of the below arrays, the last value will be considered repeated
 NDefines.NMilitary.PLANNING_CAP_COMMS_SCALING = { 1.0, 1.0, 1.0, 0.9, 0.9, 0.8, 0.8, 0.7, 0.7, 0.6, 0.6 }		-- Value at index J is the scaling applied to planning cap when HQ is J provinces behind the frontline
 NDefines.NMilitary.PLANNING_CAP_NO_HQ_SCALING = 0.6							-- Scaling applied to planning cap when there's no HQ (no leader or leader not deployed or not the same root order)
@@ -512,3 +513,10 @@ NDefines.NMilitary.GENERAL_PROXIMITY_CLOSE = 2								-- At the "close" proximit
 NDefines.NMilitary.GENERAL_PROXIMITY_MEDIUM = 4									-- At the "medium" proximity setting, the general should stay this many provinces behind the frontline
 NDefines.NMilitary.GENERAL_PROXIMITY_FAR = 6									-- At the "far" proximity setting, the general should stay this many provinces behind the frontline
 NDefines.NMilitary.GENERAL_PROXIMITY_DEFAULT = 1									-- The default proximity setting for a deployed general. This number should correspond to one of the values above
+=======
+-- Замедление роста разведсети в 3 раза
+NDefines.NOperatives.OPERATIVE_BASE_INTEL_NETWORK_GAIN = 0.25
+NDefines.NSpy = {
+    INTELLIGENCE_NETWORK_GAIN_PER_DAY = 0.25,
+}
+>>>>>>> Stashed changes

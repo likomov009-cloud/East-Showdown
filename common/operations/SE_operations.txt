@@ -1,0 +1,621 @@
+# =============================================================================
+# OPERATIONS FOR UKRAINE (AGAINST RUSSIA)
+# =============================================================================
+
+# 1. REGION RECONNAISSANCE (requires 50% network)
+UKR_region_recon = {
+    name = UKR_region_recon
+    desc = UKR_region_recon_desc
+    icon = GFX_operation_intel_recon
+    priority = 5
+    network_strength = 50
+    operatives = 1
+
+    allowed = { original_tag = UKR }
+    operation_target = { targets = { RUS } }
+    visible = { has_war_with = RUS }
+    available = {
+        has_war_with = RUS
+        has_intelligence_agency = yes
+        num_of_operatives > 0
+    }
+
+    stages = {
+        1 = {
+            name = UKR_recon_stage1_name
+            desc = UKR_recon_stage1_desc
+            days = 5
+        }
+        2 = {
+            name = UKR_recon_stage2_name
+            desc = UKR_recon_stage2_desc
+            days = 5
+        }
+        3 = {
+            name = UKR_recon_stage3_name
+            desc = UKR_recon_stage3_desc
+            days = 4
+        }
+    }
+    days = 14
+
+    outcome_extra_chance = 0.6
+    risk_chance = 0.1
+    experience = 2
+
+    outcome_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = SE_recon_fail
+                days = 14
+            }
+        }
+    }
+    outcome_extra_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = SE_recon_bonus
+                days = 14
+            }
+        }
+        add_experience = {
+            type = army_experience
+            amount = 5
+        }
+        add_intel = 15
+    }
+}
+
+# 2. FIND LOYALISTS (requires 55% network)
+UKR_find_loyalists = {
+    name = UKR_find_loyalists
+    desc = UKR_find_loyalists_desc
+    icon = GFX_operation_intel_loyalists
+    priority = 6
+    network_strength = 55
+    operatives = 1
+
+    allowed = { original_tag = UKR }
+    operation_target = { targets = { RUS } }
+    visible = { has_war_with = RUS }
+    available = {
+        has_war_with = RUS
+        has_intelligence_agency = yes
+        num_of_operatives > 0
+    }
+
+    stages = {
+        1 = {
+            name = UKR_loyal_stage1_name
+            desc = UKR_loyal_stage1_desc
+            days = 5
+        }
+        2 = {
+            name = UKR_loyal_stage2_name
+            desc = UKR_loyal_stage2_desc
+            days = 5
+        }
+        3 = {
+            name = UKR_loyal_stage3_name
+            desc = UKR_loyal_stage3_desc
+            days = 4
+        }
+    }
+    days = 14
+
+    outcome_extra_chance = 0.5
+    risk_chance = 0.15
+    experience = 2
+
+    outcome_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = SE_loyal_fail
+                days = 14
+            }
+        }
+    }
+    outcome_extra_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = SE_loyalists_found
+                days = 21
+            }
+        }
+        FROM = {
+            add_resistance = -5
+            add_compliance = 3
+        }
+    }
+}
+
+# 3. SMALL SABOTAGE (requires 55% network)
+UKR_small_sabotage = {
+    name = UKR_small_sabotage
+    desc = UKR_small_sabotage_desc
+    icon = GFX_operation_intel_sabotage
+    priority = 7
+    network_strength = 55
+    operatives = 1
+
+    allowed = { original_tag = UKR }
+    operation_target = { targets = { RUS } }
+    visible = { has_war_with = RUS }
+    available = {
+        has_war_with = RUS
+        has_intelligence_agency = yes
+        num_of_operatives > 0
+    }
+
+    stages = {
+        1 = {
+            name = UKR_sab_stage1_name
+            desc = UKR_sab_stage1_desc
+            days = 5
+        }
+        2 = {
+            name = UKR_sab_stage2_name
+            desc = UKR_sab_stage2_desc
+            days = 5
+        }
+        3 = {
+            name = UKR_sab_stage3_name
+            desc = UKR_sab_stage3_desc
+            days = 4
+        }
+    }
+    days = 14
+
+    outcome_extra_chance = 0.4
+    risk_chance = 0.2
+    experience = 2.5
+
+    outcome_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = SE_sabotage_fail
+                days = 14
+            }
+        }
+        FROM = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -100
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -25
+            }
+        }
+    }
+    outcome_extra_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = SE_sabotage_success
+                days = 21
+            }
+        }
+        FROM = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -300
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -75
+            }
+        }
+    }
+}
+
+# 4. COORDINATED RAID (requires 70% network)
+UKR_coordinated_raid = {
+    name = UKR_coordinated_raid
+    desc = UKR_coordinated_raid_desc
+    icon = GFX_operation_intel_raid
+    priority = 8
+    network_strength = 70
+    operatives = 2
+
+    allowed = { original_tag = UKR }
+    operation_target = { targets = { RUS } }
+    visible = { has_war_with = RUS }
+    available = {
+        has_war_with = RUS
+        has_intelligence_agency = yes
+        num_of_operatives > 1
+    }
+
+    stages = {
+        1 = {
+            name = UKR_raid_stage1_name
+            desc = UKR_raid_stage1_desc
+            days = 7
+        }
+        2 = {
+            name = UKR_raid_stage2_name
+            desc = UKR_raid_stage2_desc
+            days = 7
+        }
+        3 = {
+            name = UKR_raid_stage3_name
+            desc = UKR_raid_stage3_desc
+            days = 7
+        }
+    }
+    days = 21
+
+    outcome_extra_chance = 0.3
+    risk_chance = 0.25
+    experience = 3
+
+    outcome_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = SE_raid_fail
+                days = 14
+            }
+        }
+        ROOT = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 50
+            }
+        }
+        FROM = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -200
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -40
+            }
+        }
+    }
+    outcome_extra_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = SE_raid_success
+                days = 30
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 200
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 40
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 15
+            }
+        }
+        FROM = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -400
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -80
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = -30
+            }
+        }
+    }
+}
+
+# =============================================================================
+# OPERATIONS FOR RUSSIA (AGAINST UKRAINE)
+# =============================================================================
+
+# 1. REGION RECONNAISSANCE (requires 50% network)
+RUS_region_recon = {
+    name = RUS_region_recon
+    desc = RUS_region_recon_desc
+    icon = GFX_operation_intel_recon
+    priority = 5
+    network_strength = 50
+    operatives = 1
+
+    allowed = { original_tag = RUS }
+    operation_target = { targets = { UKR } }
+    visible = { has_war_with = UKR }
+    available = {
+        has_war_with = UKR
+        has_intelligence_agency = yes
+        num_of_operatives > 0
+    }
+
+    stages = {
+        1 = {
+            name = RUS_recon_stage1_name
+            desc = RUS_recon_stage1_desc
+            days = 5
+        }
+        2 = {
+            name = RUS_recon_stage2_name
+            desc = RUS_recon_stage2_desc
+            days = 5
+        }
+        3 = {
+            name = RUS_recon_stage3_name
+            desc = RUS_recon_stage3_desc
+            days = 4
+        }
+    }
+    days = 14
+
+    outcome_extra_chance = 0.6
+    risk_chance = 0.1
+    experience = 2
+
+    outcome_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = RUS_recon_fail
+                days = 14
+            }
+        }
+    }
+    outcome_extra_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = RUS_recon_bonus
+                days = 14
+            }
+        }
+        add_experience = {
+            type = army_experience
+            amount = 5
+        }
+        add_intel = 15
+    }
+}
+
+# 2. FIND COLLABORATORS (requires 55% network)
+RUS_find_collaborators = {
+    name = RUS_find_collaborators
+    desc = RUS_find_collaborators_desc
+    icon = GFX_operation_intel_loyalists
+    priority = 6
+    network_strength = 55
+    operatives = 1
+
+    allowed = { original_tag = RUS }
+    operation_target = { targets = { UKR } }
+    visible = { has_war_with = UKR }
+    available = {
+        has_war_with = UKR
+        has_intelligence_agency = yes
+        num_of_operatives > 0
+    }
+
+    stages = {
+        1 = {
+            name = RUS_collab_stage1_name
+            desc = RUS_collab_stage1_desc
+            days = 5
+        }
+        2 = {
+            name = RUS_collab_stage2_name
+            desc = RUS_collab_stage2_desc
+            days = 5
+        }
+        3 = {
+            name = RUS_collab_stage3_name
+            desc = RUS_collab_stage3_desc
+            days = 4
+        }
+    }
+    days = 14
+
+    outcome_extra_chance = 0.5
+    risk_chance = 0.15
+    experience = 2
+
+    outcome_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = RUS_collab_fail
+                days = 14
+            }
+        }
+    }
+    outcome_extra_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = RUS_collaborators_found
+                days = 21
+            }
+        }
+        FROM = {
+            add_resistance = -5
+            add_compliance = 3
+        }
+    }
+}
+
+# 3. SMALL SABOTAGE (requires 55% network)
+RUS_small_sabotage = {
+    name = RUS_small_sabotage
+    desc = RUS_small_sabotage_desc
+    icon = GFX_operation_intel_sabotage
+    priority = 7
+    network_strength = 55
+    operatives = 1
+
+    allowed = { original_tag = RUS }
+    operation_target = { targets = { UKR } }
+    visible = { has_war_with = UKR }
+    available = {
+        has_war_with = UKR
+        has_intelligence_agency = yes
+        num_of_operatives > 0
+    }
+
+    stages = {
+        1 = {
+            name = RUS_sab_stage1_name
+            desc = RUS_sab_stage1_desc
+            days = 5
+        }
+        2 = {
+            name = RUS_sab_stage2_name
+            desc = RUS_sab_stage2_desc
+            days = 5
+        }
+        3 = {
+            name = RUS_sab_stage3_name
+            desc = RUS_sab_stage3_desc
+            days = 4
+        }
+    }
+    days = 14
+
+    outcome_extra_chance = 0.4
+    risk_chance = 0.2
+    experience = 2.5
+
+    outcome_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = RUS_sabotage_fail
+                days = 14
+            }
+        }
+        FROM = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -100
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -25
+            }
+        }
+    }
+    outcome_extra_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = RUS_sabotage_success
+                days = 21
+            }
+        }
+        FROM = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -300
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -75
+            }
+        }
+    }
+}
+
+# 4. COORDINATED RAID (requires 70% network)
+RUS_coordinated_raid = {
+    name = RUS_coordinated_raid
+    desc = RUS_coordinated_raid_desc
+    icon = GFX_operation_intel_raid
+    priority = 8
+    network_strength = 70
+    operatives = 2
+
+    allowed = { original_tag = RUS }
+    operation_target = { targets = { UKR } }
+    visible = { has_war_with = UKR }
+    available = {
+        has_war_with = UKR
+        has_intelligence_agency = yes
+        num_of_operatives > 1
+    }
+
+    stages = {
+        1 = {
+            name = RUS_raid_stage1_name
+            desc = RUS_raid_stage1_desc
+            days = 7
+        }
+        2 = {
+            name = RUS_raid_stage2_name
+            desc = RUS_raid_stage2_desc
+            days = 7
+        }
+        3 = {
+            name = RUS_raid_stage3_name
+            desc = RUS_raid_stage3_desc
+            days = 7
+        }
+    }
+    days = 21
+
+    outcome_extra_chance = 0.3
+    risk_chance = 0.25
+    experience = 3
+
+    outcome_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = RUS_raid_fail
+                days = 14
+            }
+        }
+        ROOT = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 50
+            }
+        }
+        FROM = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -200
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -40
+            }
+        }
+    }
+    outcome_extra_execute = {
+        ROOT = {
+            add_timed_idea = {
+                idea = RUS_raid_success
+                days = 30
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 200
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 40
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 15
+            }
+        }
+        FROM = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -400
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -80
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = -30
+            }
+        }
+    }
+}

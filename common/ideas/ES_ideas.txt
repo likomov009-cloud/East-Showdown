@@ -1,0 +1,176 @@
+# =============================================================================
+# ИДЕИ (НАЦИОНАЛЬНЫЕ ДУХИ) ДЛЯ ОПЕРАЦИЙ УКРАИНЫ
+# =============================================================================
+
+ideas = {
+    country = {
+        # ============================================
+        # БАФЫ ДЛЯ УКРАИНЫ (ПРИ УСПЕХЕ ОПЕРАЦИЙ)
+        # ============================================
+
+        # 1. Разведка региона (требование 50%)
+        SE_recon_bonus = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            intel_network_gain_factor = 0.15      # было 0.1
+            planning_speed = 0.15                 # было 0.1
+            recon_factor = 0.15                   # было 0.1
+        }
+
+        # 2. Поиск лоялистов (требование 55%)
+        SE_loyalists_found = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            compliance_gain = 0.07                # было 0.05
+            resistance_growth = -0.07             # было -0.05
+            enemy_operative_capture_chance_factor = 0.25  # было 0.2
+        }
+
+        # 3. Малая диверсия (требование 55%)
+        SE_sabotage_success = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            production_speed_factor = 0.15        # было 0.1
+            factory_repair_speed_factor = 0.20    # было 0.15
+        }
+
+        # 4. Координированный рейд (требование 70%) — самые жирные бонусы
+        SE_raid_success = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            army_org_factor = 0.08                # было 0.05
+            army_attack_factor = 0.08             # было 0.05
+            army_defence_factor = 0.08            # было 0.05
+            breakthrough_factor = 0.08            # было 0.05
+        }
+
+        # ============================================
+        # ДЕБАФЫ ДЛЯ УКРАИНЫ (ПРИ ПРОВАЛЕ ОПЕРАЦИЙ)
+        # ============================================
+
+        # 1. Провал разведки
+        SE_recon_fail = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            intel_network_gain_factor = -0.07      # было -0.05
+            planning_speed = -0.07                 # было -0.05
+            recon_factor = -0.07                   # было -0.05
+        }
+
+        # 2. Провал поиска лоялистов
+        SE_loyal_fail = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            compliance_gain = -0.05                # было -0.03
+            resistance_growth = 0.05               # было 0.03
+        }
+
+        # 3. Провал диверсии
+        SE_sabotage_fail = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            production_speed_factor = -0.08        # было -0.05
+        }
+
+        # 4. Провал рейда
+        SE_raid_fail = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            army_org_factor = -0.05                # было -0.03
+            army_attack_factor = -0.05             # было -0.03
+            army_defence_factor = -0.05            # было -0.03
+        }
+        # ============================================
+        # БАФЫ ДЛЯ РОССИИ (ПРИ УСПЕХЕ ОПЕРАЦИЙ)
+        # ============================================
+
+        # 1. Разведка региона (требование 50%)
+        RUS_recon_bonus = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            intel_network_gain_factor = 0.15
+            planning_speed = 0.15
+            recon_factor = 0.15
+        }
+
+        # 2. Поиск коллаборационистов (требование 55%)
+        RUS_collaborators_found = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            compliance_gain = 0.07
+            resistance_growth = -0.07
+            enemy_operative_capture_chance_factor = 0.25
+        }
+
+        # 3. Малая диверсия (требование 55%)
+        RUS_sabotage_success = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            production_speed_factor = 0.15
+            factory_repair_speed_factor = 0.20
+        }
+
+        # 4. Координированный рейд (требование 70%)
+        RUS_raid_success = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            army_org_factor = 0.08
+            army_attack_factor = 0.08
+            army_defence_factor = 0.08
+            breakthrough_factor = 0.08
+        }
+
+        # ============================================
+        # ДЕБАФЫ ДЛЯ РОССИИ (ПРИ ПРОВАЛЕ ОПЕРАЦИЙ)
+        # ============================================
+
+        # 1. Провал разведки
+        RUS_recon_fail = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            intel_network_gain_factor = -0.07
+            planning_speed = -0.07
+            recon_factor = -0.07
+        }
+
+        # 2. Провал поиска коллаборационистов
+        RUS_collab_fail = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            compliance_gain = -0.05
+            resistance_growth = 0.05
+        }
+
+        # 3. Провал диверсии
+        RUS_sabotage_fail = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            production_speed_factor = -0.08
+        }
+
+        # 4. Провал рейда
+        RUS_raid_fail = {
+            picture = GFX_idea_intel_network
+            cost = 0
+            removal_cost = 0
+            army_org_factor = -0.05
+            army_attack_factor = -0.05
+            army_defence_factor = -0.05
+        }
+    }
+}
