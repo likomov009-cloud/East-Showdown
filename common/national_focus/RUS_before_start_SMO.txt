@@ -237,8 +237,7 @@ focus_tree = {
 		id = RUS_orders_military_industry
 		icon = GFX_RUS_orders_military_industry
 		relative_position_id = RUS_Military_assistance_to_the_Peoples_Republics
-		prerequisite = { focus = RUS_Anti_Ukrainian_media_campaign }
-		prerequisite = { focus = RUS_Begin_an_economic_blockade_of_Ukraine }
+		prerequisite = { focus = RUS_Anti_Ukrainian_media_campaign focus = RUS_Begin_an_economic_blockade_of_Ukraine }
 		cost = 0.572
 		x = 2
 		y = 2
@@ -321,8 +320,7 @@ focus_tree = {
 		id = RUS_operations_under_false_flag
 		icon = GFX_RUS_operations_under_false_flag
 		relative_position_id = RUS_Military_assistance_to_the_Peoples_Republics
-		prerequisite = { focus = RUS_Anti_Ukrainian_media_campaign }
-		prerequisite = { focus = RUS_Begin_an_economic_blockade_of_Ukraine }
+		prerequisite = { focus = RUS_Anti_Ukrainian_media_campaign focus = RUS_Begin_an_economic_blockade_of_Ukraine }
 		cost = 0.572
 		x = 0
 		y = 2
@@ -341,8 +339,7 @@ focus_tree = {
 		id = RUS_gas_issue
 		icon = GFX_RUS_gas_issue
 		relative_position_id = RUS_Military_assistance_to_the_Peoples_Republics
-		prerequisite = { focus = RUS_Anti_Ukrainian_media_campaign }
-		prerequisite = { focus = RUS_Begin_an_economic_blockade_of_Ukraine }
+		prerequisite = { focus = RUS_Anti_Ukrainian_media_campaign focus = RUS_Begin_an_economic_blockade_of_Ukraine }
 		cost = 0.286
 		x = -2
 		y = 2
@@ -358,8 +355,7 @@ focus_tree = {
 		id = RUS_send_military_advisers_to_the_LDPR
 		icon = GFX_RUS_send_military_advisers_to_the_LDPR
 		relative_position_id = RUS_Military_assistance_to_the_Peoples_Republics
-		prerequisite = { focus = RUS_operations_under_false_flag }
-		prerequisite = { focus = RUS_gas_issue }
+		prerequisite = { focus = RUS_operations_under_false_flag focus = RUS_gas_issue }
 		cost = 0.286
 		x = -1
 		y = 3
@@ -1080,8 +1076,7 @@ focus_tree = {
 		id = RUS_Recognition_People_Republics
 		icon = GFX_RUS_Recognition_People_Republics
 		relative_position_id = RUS_Preparing_for_Preemptive_Strike
-		prerequisite = { focus = RUS_put_the_troops_on_alert }
-		prerequisite = { focus = RUS_send_military_advisers_to_the_LDPR }
+		prerequisite = { focus = RUS_put_the_troops_on_alert focus = RUS_send_military_advisers_to_the_LDPR }
 		cost = 0.286
 		x = 0
 		y = 6
@@ -1122,7 +1117,7 @@ focus_tree = {
                 }
 			}
 			if = {
-				Limit = { 
+				limit = { 
 					RUS = {
 						is_ai = no
 					} 
@@ -1136,7 +1131,7 @@ focus_tree = {
 			}
 			}
 			if = {
-				Limit = { 
+				limit = { 
 				RUS = {
 					is_ai = yes
 				} 
@@ -1507,7 +1502,7 @@ focus_tree = {
 				}
 
 
-				IF = { LIMIT = { RUS = { is_ai = no}}
+				if = { limit = { RUS = { is_ai = no}}
 				if = { 
 					limit = { 
 						NOT = { RUS = { has_country_flag = SMO_leftbank_Dnieper_c } } 
@@ -1830,7 +1825,7 @@ focus_tree = {
 				
 				######AI BUFF 
 
-				IF = { LIMIT = { RUS = { is_ai = yes}}
+				if = { limit = { RUS = { is_ai = yes}}
 				if = { 
 					limit = { 
 						NOT = { RUS = { has_country_flag = SMO_leftbank_Dnieper_c } } 
@@ -2698,9 +2693,7 @@ focus_tree = {
 		id = RUS_Army_maneuvers
 		icon = GFX_RUS_Army_maneuvers
 		relative_position_id = RUS_SMO
-		prerequisite = { focus = RUS_Blockade_of_Ukrainian_ports  }
-		prerequisite = { focus = RUS_Installation_of_roadblocks  }
-		prerequisite = { focus = RUS_Daily_meetings_of_the_General_Staff  }
+		prerequisite = { focus = RUS_Blockade_of_Ukrainian_ports focus = RUS_Installation_of_roadblocks focus = RUS_Daily_meetings_of_the_General_Staff }
 		cost = 1
 		x = 0
 		y = 3
@@ -3296,87 +3289,87 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = RUS_bomb_the_militants_positions
-		icon = GFX_404
-		relative_position_id = RUS_resumption_of_active_offensive_actions
-		prerequisite = { focus = RUS_frontal_assaults focus = RUS_cut_off_from_supplies }
-		cost = 2
-		x = 0
-		y = 2
-		available = {
-			OR = {
-				is_special_project_completed = sp:rus_umpk
-				is_special_project_completed = sp:rus_umpb
-			}
-			has_completed_focus = RUS_Modernization_of_military_aviation
-		}
-		completion_reward = {
-			if = {
-				limit = {
-					NOT = {
-						is_special_project_completed = sp:rus_umpb
-						is_special_project_completed = sp:rus_umpk
-					}
-				}
-				custom_effect_tooltip = RUS_bomb_the_militants_positions_tt
-			}
-			if = {
-				limit = {
-					is_special_project_completed = sp:rus_umpk
-					NOT = {
-						is_special_project_completed = sp:rus_umpb
-					}
-				}
-				add_to_variable = {
-					var = RUS_VCRF_air_cas_efficiency
-					value = 0.25
-				}
-				custom_effect_tooltip = RUS_bomb_the_militants_positions_tt_1
-			}
-			if = {
-				limit = {
-					is_special_project_completed = sp:rus_umpb
-					NOT = {
-						is_special_project_completed = sp:rus_umpk
-					}
-				}
-				add_to_variable = {
-					var = RUS_VCRF_air_cas_efficiency
-					value = 0.25
-				}
-				custom_effect_tooltip = RUS_bomb_the_militants_positions_tt_1
-			}
-			if = {
-				limit = {
-					is_special_project_completed = sp:rus_umpb
-					is_special_project_completed = sp:rus_umpk
-					NOT = {
-						is_special_project_completed = sp:RUS_umpk_pd
-					}
-				}
-				add_to_variable = {
-					var = RUS_VCRF_air_cas_efficiency
-					value = 0.5
-				}
-				custom_effect_tooltip = RUS_bomb_the_militants_positions_tt_2
-			}
-			if = {
-				limit = {
-					is_special_project_completed = sp:rus_umpb
-					is_special_project_completed = sp:rus_umpk
-					is_special_project_completed = sp:RUS_umpk_pd
-				}
-				add_to_variable = {
-					var = RUS_VCRF_air_cas_efficiency
-					value = 0.6
-				}
-				custom_effect_tooltip = RUS_bomb_the_militants_positions_tt_3
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+    id = RUS_bomb_the_militants_positions
+    icon = GFX_goal_generic_military
+    relative_position_id = RUS_resumption_of_active_offensive_actions
+    prerequisite = { focus = RUS_frontal_assaults focus = RUS_cut_off_from_supplies }
+    cost = 2
+    x = 0
+    y = 2
+    available = {
+        OR = {
+            is_special_project_completed = sp:rus_umpk
+            is_special_project_completed = sp:rus_umpb
+        }
+        has_completed_focus = RUS_Modernization_of_military_aviation
+    }
+    completion_reward = {
+        if = {
+            limit = {
+                NOT = {
+                    is_special_project_completed = sp:rus_umpb
+                    is_special_project_completed = sp:rus_umpk
+                }
+            }
+            custom_effect_tooltip = RUS_bomb_the_militants_positions_tt
+        }
+        if = {
+            limit = {
+                is_special_project_completed = sp:rus_umpk
+                NOT = {
+                    is_special_project_completed = sp:rus_umpb
+                }
+            }
+            add_to_variable = {
+                var = RUS_VCRF_air_cas_efficiency
+                value = 0.25
+            }
+            custom_effect_tooltip = RUS_bomb_the_militants_positions_tt_1
+        }
+        if = {
+            limit = {
+                is_special_project_completed = sp:rus_umpb
+                NOT = {
+                    is_special_project_completed = sp:rus_umpk
+                }
+            }
+            add_to_variable = {
+                var = RUS_VCRF_air_cas_efficiency
+                value = 0.25
+            }
+            custom_effect_tooltip = RUS_bomb_the_militants_positions_tt_1
+        }
+        if = {
+            limit = {
+                is_special_project_completed = sp:rus_umpb
+                is_special_project_completed = sp:rus_umpk
+                NOT = {
+                    is_special_project_completed = sp:RUS_umpk_pd
+                }
+            }
+            add_to_variable = {
+                var = RUS_VCRF_air_cas_efficiency
+                value = 0.5
+            }
+            custom_effect_tooltip = RUS_bomb_the_militants_positions_tt_2
+        }
+        if = {
+            limit = {
+                is_special_project_completed = sp:rus_umpb
+                is_special_project_completed = sp:rus_umpk
+                is_special_project_completed = sp:RUS_umpk_pd
+            }
+            add_to_variable = {
+                var = RUS_VCRF_air_cas_efficiency
+                value = 0.6
+            }
+            custom_effect_tooltip = RUS_bomb_the_militants_positions_tt_3
+        }
+    }
+    ai_will_do = {
+        factor = 1
+    }
+}
 	focus = {
 		id = RUS_philosophy_of_assaults
 		icon = GFX_RUS_philosophy_of_assaults
@@ -3487,57 +3480,57 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = RUS_destroy_ukrainian_military_logistics
-		icon = GFX_404
-		relative_position_id = RUS_resumption_of_active_offensive_actions
-		prerequisite = { focus = RUS_massive_assaults_with_light_enginery focus = RUS_armored_assaults }
-		cost = 1.5
-		x = 0
-		y = 5
-		available = {
-		}
-		completion_reward = {	
-			UKR = {
-				add_dynamic_modifier = { modifier = UKR_raids_on_military_logistics_modifier }
-				if ={
-					limit = {
-						has_completed_focus = RUS_sponsor_private_production
-					}
-					add_to_variable = { UKR_raids_on_military_logistics_truck_attrition_factor = 0.5 }
-				}
-				if ={
-					limit = {
-						is_special_project_completed = sp:RUS_umpk_pd
-					}
-					add_to_variable = { UKR_raids_on_military_logistics_truck_attrition_factor = 0.5 }
-				}
-			}
-			custom_effect_tooltip = RUS_destroy_ukrainian_military_logistics_tt
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+    id = RUS_destroy_ukrainian_military_logistics
+    icon = GFX_goal_generic_military
+    relative_position_id = RUS_resumption_of_active_offensive_actions
+    prerequisite = { focus = RUS_massive_assaults_with_light_enginery focus = RUS_armored_assaults }
+    cost = 1.5
+    x = 0
+    y = 5
+    available = {
+    }
+    completion_reward = {
+        UKR = {
+            add_dynamic_modifier = { modifier = UKR_raids_on_military_logistics_modifier }
+            if = {
+                limit = {
+                    has_completed_focus = RUS_sponsor_private_production
+                }
+                add_to_variable = { UKR_raids_on_military_logistics_truck_attrition_factor = 0.5 }
+            }
+            if = {
+                limit = {
+                    is_special_project_completed = sp:RUS_umpk_pd
+                }
+                add_to_variable = { UKR_raids_on_military_logistics_truck_attrition_factor = 0.5 }
+            }
+        }
+        custom_effect_tooltip = RUS_destroy_ukrainian_military_logistics_tt
+    }
+    ai_will_do = {
+        factor = 1
+    }
+}
 	focus = {
-		id = RUS_the_last_days_of_the_kyiv_regime
-		icon = GFX_404
-		relative_position_id = RUS_resumption_of_active_offensive_actions
-		prerequisite = { focus = RUS_destroy_ukrainian_military_logistics }
-		cost = 1.5
-		x = 0
-		y = 6
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = in_development
-				always = no
-			}
-		}
-		completion_reward = {	
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+    id = RUS_the_last_days_of_the_kyiv_regime
+    icon = GFX_goal_generic_military
+    relative_position_id = RUS_resumption_of_active_offensive_actions
+    prerequisite = { focus = RUS_destroy_ukrainian_military_logistics }
+    cost = 1.5
+    x = 0
+    y = 6
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = in_development
+            always = no
+        }
+    }
+    completion_reward = {
+    }
+    ai_will_do = {
+        factor = 1
+    }
+}
 	focus = {
 		id = RUS_Start_the_negotiation_process
 		icon = GFX_RUS_Start_the_negotiation_process
@@ -3630,8 +3623,7 @@ focus_tree = {
 		id = RUS_Minsk_3
 		icon = GFX_RUS_Minsk_3
 		relative_position_id = RUS_Lightning_strike
-		prerequisite = { focus = RUS_common_language_with_NATO  }
-		prerequisite = { focus = RUS_Istanbul_Agreements  }
+		prerequisite = { focus = RUS_common_language_with_NATO focus = RUS_Istanbul_Agreements }
 		cost = 2
 		x = -5
 		y = 3
